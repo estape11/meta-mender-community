@@ -1,0 +1,11 @@
+
+# General SD card parameters
+MENDER_FEATURES_ENABLE:append = " mender-image-sd "
+
+# SD card configuration for imx8dxlb0-lpddr4-evk
+MENDER_STORAGE_DEVICE_BASE:imx8dxlb0-lpddr4-evk = "/dev/mmcblk1p"
+MENDER_STORAGE_DEVICE:imx8dxlb0-lpddr4-evk = "/dev/mmcblk1"
+MENDER_IMAGE_BOOTLOADER_FILE:imx8dxlb0-lpddr4-evk = "imx-boot"
+MENDER_BOOT_PART_SIZE_MB:imx8dxlb0-lpddr4-evk = "64"
+MENDER_STORAGE_TOTAL_SIZE_MB:imx8dxlb0-lpddr4-evk = "1024"
+MENDER_DATA_PART_SIZE_MB:imx8dxlb0-lpddr4-evk = "256"

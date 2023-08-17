@@ -1,0 +1,34 @@
+From 1302274a94b81324afd05daa3a0e968f1ce2cd9a Mon Sep 17 00:00:00 2001
+From: Esteban AP <esteban.aguero@northern.tech>
+Date: Wed, 9 Aug 2023 23:24:32 +0000
+Subject: [PATCH 1/1] uboot cmds modifications to use Mender variables
+
+Signed-off-by: Esteban AP <esteban.aguero@northern.tech>
+---
+ include/configs/imx8dxl_evk.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/include/configs/imx8dxl_evk.h b/include/configs/imx8dxl_evk.h
+index 9e21d4feaa..0e02072a92 100644
+--- a/include/configs/imx8dxl_evk.h
++++ b/include/configs/imx8dxl_evk.h
+@@ -146,7 +146,7 @@
+ 	"mmcpart=1\0" \
+ 	"mmcroot=" CONFIG_MMCROOT " rootwait rw\0" \
+ 	"mmcautodetect=yes\0" \
+-	"mmcargs=setenv bootargs console=${console},${baudrate} earlycon root=${mmcroot}\0 " \
++	"mmcargs=setenv bootargs console=${console},${baudrate} earlycon root=${mender_boot_part_name}\0 " \
+ 	"loadbootscript=fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
+ 	"bootscript=echo Running bootscript from mmc ...; " \
+ 		"source\0" \
+@@ -156,6 +156,7 @@
+ 	"auth_os=auth_cntr ${cntr_addr}\0" \
+ 	"boot_os=booti ${loadaddr} - ${fdt_addr};\0" \
+ 	"mmcboot=echo Booting from mmc ...; " \
++		"run mender_setup; " \
+ 		"run mmcargs; " \
+ 		"if test ${sec_boot} = yes; then " \
+ 			"if run auth_os; then " \
+-- 
+2.25.1
+
