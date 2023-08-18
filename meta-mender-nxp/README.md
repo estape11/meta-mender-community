@@ -74,8 +74,8 @@ MACHINE=imx8dxlb0-lpddr4-evk DISTRO=fsl-imx-wayland source ./imx-setup-release.s
 - Add `langdale` in the `LAYERSERIES_COMPAT_mender`:
 
 ```bash
-vi meta-mender/meta-mender-core/conf/layer.conf
-vi meta-mender/meta-mender-demo/conf/layer.conf
+vi ../sources/meta-mender/meta-mender-core/conf/layer.conf
+vi ../sources/meta-mender/meta-mender-demo/conf/layer.conf
 ```
 
 - Add mender to the bblayers
@@ -83,7 +83,7 @@ vi meta-mender/meta-mender-demo/conf/layer.conf
 ```bash
 bitbake-layers add-layer ../sources/meta-mender/meta-mender-core/
 bitbake-layers add-layer ../sources/meta-mender/meta-mender-demo/
-
+bitbake-layers add-layer ../sources/meta-mender-community/meta-mender-nxp
 ```
 
 - Apply the local.conf changes
